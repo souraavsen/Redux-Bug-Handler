@@ -8,11 +8,11 @@ export function AddBug(des) {
     },
   };
 }
-export function RemoveBug(id) {
+export function RemoveBug(bugId) {
   return {
     type: actions.REMOVE_BUG,
     payload: {
-      id: 1,
+      id: bugId,
     },
   };
 }

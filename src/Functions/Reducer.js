@@ -2,14 +2,9 @@ import * as actions from "./ActionTypes";
 
 let id = 1;
 
-const initial = [
-  {
-    accounts: {},
-    quizes: [],
-  },
-];
+const initialBugs = [];
 
-export default function reducer(state = initial, action) {
+export default function reducer(state = initialBugs, action) {
   switch (action.type) {
     case actions.ADD_BUG:
       if (action.payload.des === "") {
@@ -25,18 +20,11 @@ export default function reducer(state = initial, action) {
       ];
 
     case actions.REMOVE_BUG:
+      console.log(action.payload.id);
+      console.log(state);
       return state.filter((bug) => bug.id !== action.payload.id);
 
     default:
       return state;
   }
-  
-  // if (action.type === 'AddBug') {
-  //     return [
-  //         ...state, {
-  //             des: action.payload.des,
-
-  //         }
-  //     ]
-  // }
 }

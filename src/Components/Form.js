@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AddBug } from "../Functions/Actions";
+import { AddBug, RemoveBug } from "../Functions/Actions";
 import store from "../Functions/Store";
 import Display from "./Display";
 
@@ -26,12 +26,9 @@ const Form = () => {
     setDes("");
   };
 
-  // const removeBug = (id) => {
-  //   store.dispatch(1);
-  // };
-
-  // removeBug()
-  console.log(store.getState());
+  const removeBug = (bugId) => {
+    store.dispatch(RemoveBug(bugId));
+  };
 
   return (
     <div>
@@ -57,7 +54,7 @@ const Form = () => {
       <br />
       <br />
 
-      <Display></Display>
+      <Display removeBug={removeBug}></Display>
     </div>
   );
 };
